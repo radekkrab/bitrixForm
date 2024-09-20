@@ -15,20 +15,20 @@ $this->addExternalJs("/local/components/mycompany/contactform/assets/bootstrap.m
     <?php endif; ?>
     <form method="POST" enctype="multipart/form-data">
         <?= bitrix_sessid_post(); ?>
-        <div class="form-group w-25 mt-3">
+        <div class="form-group w-85 mt-3 col-xl-2">
             <label for="title">Заголовок заявки</label>
             <input type="text" class="form-control" id="title" name="title" required>
         </div>
         <div class="form-group mt-3">
             <p class="fw-bold fs-6">Категория</p>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="category" id="category1" value="option1" checked>
+                <input class="form-check-input" type="radio" name="category" id="category1" value="Масла, автохимия, фильтры. Автоаксессуары, обогреватели, запчасти, сопутствующие товары." checked>
                 <label class="form-check-label" for="category1">
                     Масла, автохимия, фильтры. Автоаксессуары, обогреватели, запчасти, сопутствующие товары.
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="category" id="category2" value="option2">
+                <input class="form-check-input" type="radio" name="category" id="category2" value="Шины, диски">
                 <label class="form-check-label" for="category2">
                     Шины, диски
                 </label>
@@ -37,78 +37,74 @@ $this->addExternalJs("/local/components/mycompany/contactform/assets/bootstrap.m
         <div class="form-group mt-3">
             <p class="fw-bold fs-6">Вид заявки</p>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="type1" value="option1" checked>
+                <input class="form-check-input" type="radio" name="type" id="type1" value="Запрос цены и сроков поставки" checked>
                 <label class="form-check-label" for="type1">
                     Запрос цены и сроков поставки
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="type2" value="option2">
+                <input class="form-check-input" type="radio" name="type" id="type2" value="Пополнение складов">
                 <label class="form-check-label" for="type2">
                     Пополнение складов
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="type" id="type3" value="option2">
+                <input class="form-check-input" type="radio" name="type" id="type3" value="Спецзаказ">
                 <label class="form-check-label" for="type3">
                     Спецзаказ
                 </label>
             </div>
         </div>
-        <div class="form-group w-25 mt-3">
+        <div class="form-group w-85 mt-3 col-xl-2">
             <p class="fw-bold fs-6">Склад поставки</p>
             <select class="form-select" style="font-size: 12px;" aria-label="Default select example" id="warehouse" name="warehouse">
                 <option selected>(выберите склад поставки)</option>
-                <option value="1">Склад 1</option>
-                <option value="2">Склад 2</option>
-                <option value="3">Склад 3</option>
+                <option value="Склад 1">Склад 1</option>
+                <option value="Склад 2">Склад 2</option>
+                <option value="Склад 3">Склад 3</option>
             </select>
         </div>
 
         <div id="items-container" class="mt-3">
             <p class="fw-bold fs-6">Состав заявки</p>
-            <div class="form-group row px-2">
-                <div class="text-center col-4 px-0" style="width: 180px;">
+            <div class="form-group row col-12">
+                <div class="text-center px-0 col-xl-2">
                     <label for="brand" class="fw-bold mb-1 text-danger">Бренд</label>
-                    <select class="form-select text-secondary" style="font-size: 12px;" aria-label="Default select example" id="brand" name="item[]['brand']">
+                    <select class="form-select text-secondary" style="font-size: 12px;" aria-label="Default select example" id="brand" name="items[][brand]">
                         <option selected>Выберите бренд</option>
-                        <option value="1">Склад 1</option>
-                        <option value="2">Склад 2</option>
-                        <option value="3">Склад 3</option>
+                        <option value="Адидас">Адидас</option>
+                        <option value="Найк">Найк</option>
+                        <option value="Рибок">Рибок</option>
                     </select>
                 </div>
-                <div class="text-center col-2 ps-1 pe-0">
+                <div class="text-center ps-1 pe-0 col-xl-2">
                     <label for="name" class="fw-bold mb-1 text-danger">Наименование</label>
-                    <input type="text" class="form-control py-0" style="height: 31px;" id="name" name="items[]['name']">
+                    <input type="text" class="form-control py-0" style="height: 31px;" id="name" name="items[][name]">
                 </div>
-                <div class="text-center col-2 ps-1 pe-0">
+                <div class="text-center ps-1 pe-0 col-xl-2">
                     <label for="count" class="fw-bold mb-1 text-danger">Количество</label>
-                    <input type="text" class="form-control" style="height: 31px;" id="count" name="items[]['count']">
+                    <input type="text" class="form-control" style="height: 31px;" id="count" name="items[][count]">
                 </div>
-                <div class="text-center col-2 ps-1 pe-0">
+                <div class="text-center ps-1 pe-0 col-xl-2">
                     <label for="packaging" class="fw-bold mb-1 text-danger">Фасовка</label>
-                    <input type="text" class="form-control" style="height: 31px;" id="packaging" name="items[]['packaging']">
+                    <input type="text" class="form-control" style="height: 31px;" id="packaging" name="items[][packaging]">
                 </div>
-                <div class="text-center col-2 ps-1 pe-0">
+                <div class="text-center ps-1 pe-0 col-xl-2">
                     <label for="client" class="fw-bold mb-1 text-danger">Клиент</label>
-                    <input type="text" class="form-control" style="height: 31px;" id="client" name="items[]['client']">
+                    <input type="text" class="form-control" style="height: 31px;" id="client" name="items[][client]">
                 </div>
-                <div class="col-1 mx-auto mt-auto mb-1 text-end">
+                <div class="mx-auto my-auto center text-center align-middle col-xl-2">
                     <button type="button" class="btn btn-primary py-0 px-1 mx-auto add-item">+</button>
-                </div>
-                <div class="col-1 mx-auto mt-auto mb-1">
                     <button type="button" class="btn btn-secondary py-0 px-2 remove-item">-</button>
                 </div>
-
-
             </div>
         </div>
 
-        <div class="input-group mt-3 w-25">
+        <div class="form-group mt-3 col-xl-3">
             <input type="file" class="form-control" name="file" style="font-size: 12px;">
         </div>
 
-        <div class="mt-3 w-50">
+        <div class="mt-3 col-xl-3">
             <label for="comment">Комментарий:</label>
             <textarea class="form-control" id="comment" name="comment" style="height: 110px;"></textarea>
         </div>
